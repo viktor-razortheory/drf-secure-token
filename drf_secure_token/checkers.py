@@ -1,5 +1,10 @@
+import django
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+
+if django.VERSION < (4, 0):
+    from django.utils.translation import ugettext_lazy as _
+else:
+    from django.utils.translation import gettext_lazy as _
 
 from rest_framework.settings import perform_import
 
